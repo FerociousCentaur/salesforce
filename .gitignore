@@ -1,2 +1,4 @@
-./salesfoce/local_settings.py
+
 venv
+
+local_settings.py
