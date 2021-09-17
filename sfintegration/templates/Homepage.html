@@ -10,20 +10,35 @@
 </head>
 <body>
 <div class="container">
-    <div class="row">
-        <div class="col-md-12">
 
-          <form action="" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
-</form>
-        </div>
-    </div>
     <div class="row">
-        {% if response %}
-        {{response}}
+        {% if contacts %}
+        <table class="table">
+  <thead>
+    <tr>
+        <th scope="col">#</th>
+      <th scope="col">ID</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+        {% for i in contacts %}
+        <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td >{{i.sd_id}}</td>
+      <td>{{i.f_name}}</td>
+      <td>{{i.l_name}}</td>
+    </tr>
+        {% endfor %}
+  </tbody>
         {% endif %}
+    </div>
+    <div class="col-md-12 text-center">
+        <a href="{% url 'delete' %}" type="button" class="btn btn-danger">Delete All Data</a>
+        <a href="{% url 'refill' %}" type="button" class="btn btn-info">Fetch Data again</a>
     </div>
 </div>
 </body>

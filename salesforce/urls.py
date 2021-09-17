@@ -15,9 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from sfintegration.views import arrayPage
+from sfintegration.views import homepage,delete_records,refill
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('page/', arrayPage),
+    path('', homepage,name='homepage'),
+    path('delete/', delete_records,name='delete'),
+    path('refill/', refill, name='refill'),
 ]
